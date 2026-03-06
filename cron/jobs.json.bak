@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "9068fcd8-0a66-4401-9d01-a9eea9b89663",
+      "name": "s1-worker-1",
+      "enabled": true,
+      "createdAtMs": 1772606872329,
+      "updatedAtMs": 1772612053758,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 360000,
+        "anchorMs": 1772606872329
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read Z:\\WEBSITES\\DCG.CO\\.vsm\\POLICY.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\DIRECTIVE.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\LOCKS.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\ACTIVE.md. Find your slot: SLOT-1. If SLOT-1 has a task assigned to s1-worker-1: read the target file, make the change surgically using find-and-replace, verify the file, update SLOT-1 status to done. If the change is ONLY writing or adding to Z:\\WEBSITES\\DCG.CO\\ai\\ and no source files were modified, run: git -C Z:\\WEBSITES\\DCG.CO add ai/ && git -C Z:\\WEBSITES\\DCG.CO commit -m docs: s1-worker-1 update. If SLOT-1 is idle do nothing. One file. One change."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772615512329,
+        "lastRunAtMs": 1772611453464,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 600294,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2
+      }
+    },
+    {
+      "id": "762c15b1-4502-458d-b694-90d9f3e359f5",
+      "name": "s1-worker-2",
+      "enabled": true,
+      "createdAtMs": 1772606876093,
+      "updatedAtMs": 1772612457036,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 360000,
+        "anchorMs": 1772606876093
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read Z:\\WEBSITES\\DCG.CO\\.vsm\\POLICY.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\DIRECTIVE.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\LOCKS.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\ACTIVE.md. Find your slot: SLOT-2. If SLOT-2 has a task assigned to s1-worker-2: read the target file, make the change surgically using find-and-replace, verify the file, update SLOT-2 status to done. If the change is ONLY writing or adding to Z:\\WEBSITES\\DCG.CO\\ai\\ and no source files were modified, run: git -C Z:\\WEBSITES\\DCG.CO add ai/ && git -C Z:\\WEBSITES\\DCG.CO commit -m docs: s1-worker-2 update. If SLOT-2 is idle do nothing. One file. One change."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772615516093,
+        "lastRunAtMs": 1772612053758,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 403278,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2
+      }
+    },
+    {
+      "id": "2504e3b8-1af2-42d4-9126-e2b38b741fa5",
+      "name": "s1-worker-3",
+      "enabled": true,
+      "createdAtMs": 1772606883919,
+      "updatedAtMs": 1772612863074,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 360000,
+        "anchorMs": 1772606883919
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read Z:\\WEBSITES\\DCG.CO\\.vsm\\POLICY.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\DIRECTIVE.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\LOCKS.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\ACTIVE.md. Find your slot: SLOT-3. If SLOT-3 has a task assigned to s1-worker-3: read the target file, make the change surgically using find-and-replace, verify the file, update SLOT-3 status to done. If the change is ONLY writing or adding to Z:\\WEBSITES\\DCG.CO\\ai\\ and no source files were modified, run: git -C Z:\\WEBSITES\\DCG.CO add ai/ && git -C Z:\\WEBSITES\\DCG.CO commit -m docs: s1-worker-3 update. If SLOT-3 is idle do nothing. One file. One change."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772615523919,
+        "lastRunAtMs": 1772612457036,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 406038,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2
+      }
+    },
+    {
+      "id": "df4ed5e4-9a50-4dd7-876e-d66fbff7b017",
+      "name": "s2-coordination",
+      "enabled": true,
+      "createdAtMs": 1772606891811,
+      "updatedAtMs": 1772613463221,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 180000,
+        "anchorMs": 1772606891811
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read Z:\\WEBSITES\\DCG.CO\\.vsm\\POLICY.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\DIRECTIVE.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\ACTIVE.md. For each slot with status in-progress write a lock entry to Z:\\WEBSITES\\DCG.CO\\.vsm\\LOCKS.md with file, worker, time, expiry 20 minutes from now. Remove locks older than 20 minutes. Remove locks for slots marked done or failed. If two slots target the same file clear the lower priority slot and log the conflict in LOCKS.md. No git. No source file changes."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772615531811,
+        "lastRunAtMs": 1772612863074,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 600147,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 3
+      }
+    },
+    {
+      "id": "61f2b022-147e-49c1-b48b-1d30d3d8472f",
+      "name": "s3-control",
+      "enabled": true,
+      "createdAtMs": 1772606979139,
+      "updatedAtMs": 1772613944384,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 300000,
+        "anchorMs": 1772606979139
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read Z:\\WEBSITES\\DCG.CO\\.vsm\\POLICY.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\DIRECTIVE.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\ACTIVE.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\QUEUE.md. Clear slots marked done or failed and append them to the Completed Log. For each idle slot assign the next queued task that matches the current DIRECTIVE focus. Remove assigned tasks from QUEUE.md. Maximum 3 concurrent slots. No git. No source file changes."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772615679139,
+        "lastRunAtMs": 1772613463221,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 481163,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2
+      }
+    },
+    {
+      "id": "a6471ef5-aaa1-45fd-ac26-808a5deabead",
+      "name": "s4-intelligence",
+      "enabled": true,
+      "createdAtMs": 1772606991647,
+      "updatedAtMs": 1772614285195,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 900000,
+        "anchorMs": 1772606991647
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read Z:\\WEBSITES\\DCG.CO\\.vsm\\POLICY.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\DIRECTIVE.md. Focus only on the TARGET and FOCUS defined in DIRECTIVE.md. Scan 3 files from the TARGET folder. For each file find one improvement that matches the FOCUS type. Write each finding as a new task to Z:\\WEBSITES\\DCG.CO\\.vsm\\QUEUE.md using the exact task format in that file. Do not scan files in the AVOID list. Do not touch source files. No git."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772615991647,
+        "lastRunAtMs": 1772613944384,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 340811,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2
+      }
+    },
+    {
+      "id": "7709b88b-ffda-4cb4-a6cd-284ebfa758d6",
+      "name": "vsm-registry",
+      "enabled": true,
+      "createdAtMs": 1772607381946,
+      "updatedAtMs": 1772616023011,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 120000,
+        "anchorMs": 1772607381946
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run: openclaw cron list --json --token eb8c765705a0f06fb957781ace80b3ef3803862f5d03b611. Write the full result to Z:\\WEBSITES\\DCG.CO\\.vsm\\REGISTRY.md in this exact format for each job: ID: <id> | Name: <name> | Status: <status> | Last: <lastRunAtMs> | Next: <nextRunAtMs> | Errors: <consecutiveErrors>. Overwrite the file completely every cycle. This file is the live registry Maturana uses to kill and spawn agents. No git. No source file changes."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772616141946,
+        "lastRunAtMs": 1772615421966,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 601045,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2,
+        "lastError": "Channel is required (no configured channels detected). Set delivery.channel explicitly or use a main session with a previous channel."
+      }
+    },
+    {
+      "id": "df14b270-325f-4f5f-8f77-a7bd0ce02a5a",
+      "name": "maturana",
+      "enabled": true,
+      "createdAtMs": 1772607598699,
+      "updatedAtMs": 1772614872970,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1200000,
+        "anchorMs": 1772607598699
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read Z:\\WEBSITES\\DCG.CO\\.vsm\\POLICY.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\DIRECTIVE.md. Read Z:\\WEBSITES\\DCG.CO\\.vsm\\REGISTRY.md. You are the autopoietic controller of this VSM. Gateway token: eb8c765705a0f06fb957781ace80b3ef3803862f5d03b611. Step 1 — Audit duplicates: if REGISTRY.md shows two jobs with the same name keep the newer createdAtMs and delete the older using openclaw cron delete <id> --token eb8c765705a0f06fb957781ace80b3ef3803862f5d03b611. Step 2 — Audit errors: check Z:\\WEBSITES\\DCG.CO\\.vsm\\ACTIVE.md for slots stuck in-progress over 15 minutes and mark them failed. Step 3 — Audit locks: check Z:\\WEBSITES\\DCG.CO\\.vsm\\LOCKS.md for stale locks over 20 minutes and remove them. Step 4 — Heal workers: if any s1-worker in REGISTRY.md has 3 consecutive errors delete it using its exact id from REGISTRY.md then spawn a replacement using Step 5 birth rules. Step 5 — Birth rules: when spawning any s1-worker read DIRECTIVE.md FOCUS field and craft the worker prompt accordingly. If FOCUS is documentation spawn with: use the coding-agent skill to write and improve JSDoc comments and ai/ folder docs. If FOCUS is api spawn with: use the coding-agent skill to audit and fix error handling in app/api/ routes. If FOCUS is types spawn with: use the coding-agent skill to replace any types and extract inline types to types/ folder. If FOCUS is cleanup spawn with: use the coding-agent skill to remove dead code unused imports and console.logs. If FOCUS is hooks spawn with: use the coding-agent skill to extract fetch and state logic into custom hooks. If FOCUS is split spawn with: use the coding-agent skill to split files over 150 lines into focused components. Always append to every spawned worker prompt: Read POLICY.md, DIRECTIVE.md, LOCKS.md, ACTIVE.md first. One file. One change. Git only for ai/ folder. Step 6 — Scale up: if QUEUE.md has more than 10 tasks and fewer than 3 s1-workers exist spawn additional workers up to 6 max using birth rules. Step 7 — Ensure core: verify s2-coordination, s3-control, s4-intelligence, vsm-registry exist in REGISTRY.md — if any missing respawn them using their original prompts. Never delete s2-coordination, s3-control, s4-intelligence, vsm-registry or yourself. Never modify POLICY.md. Never git commit source files."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772615485195,
+        "lastRunAtMs": 1772614285195,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 587775,
+        "lastError": "Channel is required (no configured channels detected). Set delivery.channel explicitly or use a main session with a previous channel.",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    }
+  ]
+}

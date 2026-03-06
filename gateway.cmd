@@ -1,0 +1,11 @@
+@echo off
+rem OpenClaw Gateway (v2026.3.2)
+set "TMPDIR=C:\Users\skill\AppData\Local\Temp"
+set "PATH=C:\program files\nodejs;c:\program files (x86)\common files\oracle\java\java8path;c:\program files (x86)\common files\oracle\java\javapath;c:\users\skill\appdata\local\programs\cursor\resources\app\bin;c:\program files\microsoft mpi\bin\;c:\program files (x86)\common files\intel\shared libraries\redist\intel64\compiler;c:\windows\system32;c:\windows;c:\windows\system32\wbem;c:\windows\system32\windowspowershell\v1.0\;c:\windows\system32\openssh\;c:\program files\010 editor;c:\program files\dotnet\;c:\ffmpeg\bin;f:\\env_nvd_rag\lib\site-packages\torch\lib;c:\program files\nvidia corporation\nvidia app\nvdlisr;c:\program files\git\cmd;c:\program files\git\bin;c:\users\skill\appdata\roaming\nvm;c:\program files\nodejs;c:\users\skill\appdata\local\microsoft\windowsapps;c:\users\skill\appdata\local\programs\python\python312\scripts;c:\users\skill\.dotnet\tools;c:\users\skill\appdata\roaming\npm;c:\users\skill\appdata\local\programs\ollama;c:\program files\postgresql\17\bin;c:\program files\docker\docker\resources\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\skill\scoop\shims;C:\Users\skill\.cargo\bin;C:\Users\skill\AppData\Local\Microsoft\WindowsApps;C:\Users\skill\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\skill\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\skill\AppData\Roaming\npm;C:\Users\skill\AppData\Local\Programs\Ollama;C:\Users\skill\AppData\Local\Muse Hub\lib;C:\Users\skill\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\skill\.dotnet\tools;C:\Users\skill\AppData\Local\PowerToys\DSCModules\"
+set "OPENCLAW_GATEWAY_PORT=18789"
+set "OPENCLAW_GATEWAY_TOKEN=eb8c765705a0f06fb957781ace80b3ef3803862f5d03b611"
+set "OPENCLAW_SYSTEMD_UNIT=openclaw-gateway.service"
+set "OPENCLAW_SERVICE_MARKER=openclaw"
+set "OPENCLAW_SERVICE_KIND=gateway"
+set "OPENCLAW_SERVICE_VERSION=2026.3.2"
+"C:\program files\nodejs\node.exe" C:\Users\skill\AppData\Roaming\nvm\v22.22.0\node_modules\openclaw\dist\index.js gateway --port 18789

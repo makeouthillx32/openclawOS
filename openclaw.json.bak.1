@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.2",
+    "lastTouchedAt": "2026-03-03T08:51:36.570Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-03T08:40:16.152Z",
+    "lastRunVersion": "2026.3.2",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "dmr": {
+        "baseUrl": "http://localhost:12434/engines/v1",
+        "apiKey": "local-dmr",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "ai/qwen3:14B-Q6_K",
+            "name": "Qwen3 14B (DMR)",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 32768,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "dmr/ai/qwen3:14B-Q6_K"
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "eb8c765705a0f06fb957781ace80b3ef3803862f5d03b611"
+    }
+  }
+}
