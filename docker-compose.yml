@@ -1,0 +1,39 @@
+# ============================================================
+# openclawOS — docker-compose (POWER)
+# UI only — gateway runs natively via: openclaw gateway start
+# ============================================================
+
+services:
+  mission-control:
+    image: ghcr.io/makeouthillx32/tenacitos:latest
+    container_name: mission-control
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      # Place your .env in C:\Users\skill\.openclaw\.env
+      - ../.env
+    environment:
+      # Point at the native gateway on POWER's host
+      # host.docker.internal resolves to the Windows host from inside Docker
+      OPENCLAW_GATEWAY_URL: http://host.docker.internal:1865
+      NODE_ENV: production
+    volumes:
+      # Mount the entire .openclaw dir so the UI can read sessions, memory, cron etc.
+      - type: bind
+        source: C:\Users\skill\.openclaw
+        target: /root/.openclaw
+      # Persist operational data (activities, notifications etc.) across rebuilds
+      - mc_data:/app/data
+    extra_hosts:
+      # Needed on Docker Desktop for Windows to resolve host.docker.internal
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  mc_data:
